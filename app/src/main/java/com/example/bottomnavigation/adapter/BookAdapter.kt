@@ -8,15 +8,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bottomnavigation.R
-import com.example.bottomnavigation.data.model.BookDBO
+import com.example.bottomnavigation.data.model.Book
 
 class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
 
-    private var list = listOf<BookDBO>()
+    private var list = listOf<Book>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        fun bind(current: BookDBO) {
+        fun bind(current: Book) {
             val imageBook = itemView.findViewById<ImageView>(R.id.image_book)
             val nameBook = itemView.findViewById<TextView>(R.id.name_book)
             nameBook.text = current.name
@@ -24,7 +24,7 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
         }
     }
 
-    fun submitList(list: List<BookDBO>){
+    fun submitList(list: List<Book>){
         this.list = list
         notifyDataSetChanged()
     }

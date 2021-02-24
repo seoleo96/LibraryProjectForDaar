@@ -1,17 +1,17 @@
 package com.example.bottomnavigation.ui.home
 
 import androidx.lifecycle.*
-import com.example.bottomnavigation.data.model.BookDBO
+import com.example.bottomnavigation.data.model.Book
 import com.example.bottomnavigation.repository.BookRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel( private val repository: BookRepository) : ViewModel() {
 
-    val getBooks : LiveData<List<BookDBO>> = repository.getBooks.asLiveData()
+    val getBooks : LiveData<List<Book>> = repository.getBooks.asLiveData()
 
 
-    fun insertAll(list: List<BookDBO>){
+    fun insertAll(list: List<Book>){
         viewModelScope.launch(Dispatchers.IO){
             repository.insertAll(list)
         }

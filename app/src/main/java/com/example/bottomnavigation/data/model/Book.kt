@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "books")
-data class BookDBO(
+data class Book(
     @PrimaryKey(autoGenerate = true)
     val id : Int = 0,
     val name : String,
