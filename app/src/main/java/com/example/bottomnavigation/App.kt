@@ -12,4 +12,5 @@ class App : Application() {
     val repository by lazy { BookRepository(database.bookDao()) }
 }
 //App
+//App2 comment 2
 
