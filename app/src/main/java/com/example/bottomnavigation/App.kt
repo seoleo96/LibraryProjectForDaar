@@ -11,4 +11,5 @@ class App : Application() {
     val database by lazy { BookDatabase.getDatabase(this, applicationScope) }
     val repository by lazy { BookRepository(database.bookDao()) }
 }
+//App
 
