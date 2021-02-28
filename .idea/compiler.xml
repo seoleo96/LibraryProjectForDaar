@@ -6,6 +6,7 @@
       <module name="BookStore.app.base" target="1.8" />
       <module name="BookStore.app.home" target="1.8" />
       <module name="BookStore.app.profile" target="1.8" />
+      <module name="BookStore.app.repo" target="1.8" />
       <module name="BookStore.app.search" target="1.8" />
       <module name="BookStore.data" target="1.8" />
     </bytecodeTargetLevel>

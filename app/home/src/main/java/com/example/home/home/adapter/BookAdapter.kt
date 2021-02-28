@@ -17,10 +17,11 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         fun bind(current: BookDvo) {
-            val imageBook = itemView.findViewById<ImageView>(R.id.image_book)
+            val imageBook = itemView.findViewById<TextView>(R.id.image_book)
             val nameBook = itemView.findViewById<TextView>(R.id.name_book)
             nameBook.text = current.name
-            Glide.with(itemView).load(current.imageUrl).into(imageBook)
+            imageBook.text = current.imageUrl
+//            Glide.with(itemView).load(current.imageUrl).into(imageBook)
         }
     }
 

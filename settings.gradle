@@ -1,3 +1,4 @@
+include ':app:repo'
 include ':app:profile'
 include ':app:search'
 include ':app:base'

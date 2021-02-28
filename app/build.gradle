@@ -35,7 +35,10 @@ android {
 }
 
 dependencies {
+
     implementation project(":app:home")
+    implementation project(":app:base")
+
     implementation 'androidx.fragment:fragment:1.3.0'
     implementation 'androidx.fragment:fragment-ktx:1.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
