@@ -1,6 +1,6 @@
 package com.example.home.home.models
 
-import data.model.BookRemote
+import com.example.data.local.model.BookLocalDB
 
 
 data class BookDvo(
@@ -9,8 +9,8 @@ data class BookDvo(
     val imageUrl: String
 )
 
-fun BookRemote.mapToBook():BookDvo{
-    return BookDvo(id = this.id.toInt(), name = this.title, imageUrl = this.author)
+fun BookLocalDB.mapToUI():BookDvo{
+    return BookDvo(
+        id = this.id, name = this.name, imageUrl = this.imageUrl
+    )
 }
-
-

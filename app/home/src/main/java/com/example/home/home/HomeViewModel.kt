@@ -3,13 +3,12 @@ package com.example.home.home
 import android.util.Log
 import androidx.lifecycle.*
 
-import com.example.data.model.Book
+import com.example.data.local.model.BookLocalDB
 import com.example.home.home.models.BookDvo
-import com.example.base.repository.BookRepositoryImpl
+import com.example.data.local.repository.BookRepositoryImpl
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 class HomeViewModel(private val repositoryImpl: BookRepositoryImpl) : ViewModel() {
 
@@ -24,17 +23,16 @@ class HomeViewModel(private val repositoryImpl: BookRepositoryImpl) : ViewModel(
 
     fun getBooksFromApiAndAddToRoom() {
         viewModelScope.launch(Dispatchers.Default) {
-            val list = repositoryImpl.getBooksFromApi()
+            val list = repositoryImpl.getDataFromApiAndAddToDB()
             repositoryImpl.deleteAll()
             repositoryImpl.insertAll(list)
             for (i in list) {
                 Log.d("main", i.name)
             }
         }
-
     }
 
-    fun insertAll(list: List<Book>) {
+    fun insertAll(list: List<BookLocalDB>) {
         viewModelScope.launch(Dispatchers.IO) {
             repositoryImpl.insertAll(list)
         }

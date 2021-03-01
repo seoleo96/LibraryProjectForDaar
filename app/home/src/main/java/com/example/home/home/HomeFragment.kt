@@ -27,6 +27,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         initAdapter()
         getBooksAndAdd()
     }
+    
 
     private fun getBooksAndAdd() {
         if (isNetworkConnected()) {
@@ -61,7 +62,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val app = requireActivity().application as App
         val repo = app.repository
         val factory = BookViewModelFactory(repositoryImpl = repo)
-
         viewModel = ViewModelProvider(this, factory)
             .get(HomeViewModel::class.java)
     }

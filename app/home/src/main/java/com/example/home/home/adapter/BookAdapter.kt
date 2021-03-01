@@ -25,8 +25,6 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
         }
     }
 
-
-
     fun submitList(list: List<BookDvo>){
         this.list = list
         notifyDataSetChanged()
@@ -45,6 +43,4 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return list.size
     }
-
-
 }
