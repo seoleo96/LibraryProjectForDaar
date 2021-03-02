@@ -1,8 +1,8 @@
-package com.example.data
+package com.example.data.local
 
 
 import androidx.room.*
-import com.example.data.model.Book
+import com.example.data.local.model.BookLocalDB
 import kotlinx.coroutines.flow.Flow
 
 
@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 interface BookDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAll(list: List<Book>)
+    suspend fun insertAll(list: List<BookLocalDB>)
 
     @Query("SELECT * FROM books ORDER BY id ASC")
-    fun getBooks() : Flow<List<Book>>
+    fun getBooks() : Flow<List<BookLocalDB>>
 
     @Query("DELETE FROM books")
     fun deleteAll()
