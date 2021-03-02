@@ -1,0 +1,11 @@
+include ':app:find'
+include ':app:search'
+include ':app:repo'
+include ':app:profile'
+include ':app:com.example.bottomnavigation.ui.com.example.search'
+include ':app:base'
+include ':app:home'
+include ':domain'
+include ':data'
+include ':app'
+rootProject.name = "BookStore"
