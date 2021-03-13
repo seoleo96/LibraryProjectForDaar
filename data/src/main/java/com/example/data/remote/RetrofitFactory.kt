@@ -1,6 +1,7 @@
 package com.example.data.remote
 
 import com.example.data.remote.service.BookService
+import com.example.data.remote.service.GenresService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,5 +31,7 @@ class RetrofitFactory {
         .build()
 
     val bookService: BookService = retrofitClient().create(BookService::class.java)
+    val genresService : GenresService = retrofitClient().create(GenresService::class.java)
+
 
 }

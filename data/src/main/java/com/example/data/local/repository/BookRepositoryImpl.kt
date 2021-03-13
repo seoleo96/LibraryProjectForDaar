@@ -1,6 +1,6 @@
 package com.example.data.local.repository
 
-import com.example.data.local.BookDao
+import com.example.data.local.dao.BookDao
 import com.example.data.local.model.BookLocalDB
 import com.example.data.local.model.mapToVM
 import com.example.data.remote.repository.BookRepositoryImpl
@@ -29,17 +29,13 @@ class BookRepositoryImpl(private val bookDao: BookDao) : BookRepository {
         }.flowOn(Dispatchers.IO)
     }
 
-    override fun searchDatabase(query: String): Flow<List<BookLocalDB>> {
-        return bookDao.searchDatabase(query)
+    override fun searchDatabase(query: String?): Flow<List<BookLocalDB>> {
+        val sQuery = "%$query%"
+        return bookDao.searchDatabase(sQuery)
     }
 
-    override fun sortByIdASC(): Flow<List<BookLocalDB>> {
-        return bookDao.sortByIdASC()
-    }
-
-    override fun sortByIdDESC(): Flow<List<BookLocalDB>> {
-        return bookDao.sortByIdDESC()
-
+    override fun sortByIdGenres(id: List<String>): Flow<List<BookLocalDB>> {
+        return bookDao.sortByIdGenres(id)
     }
 
 }

@@ -11,11 +11,12 @@ data class BookLocalDB(
     val id : Int = 0,
     val name : String,
     val author : String,
-    val imageUrl : String
+    val imageUrl : String,
+    val genre_id : String,
 )
 
 fun Book.mapToVM() : BookLocalDB{
-    return BookLocalDB(id = this.id.toInt(), name = this.title, imageUrl = this.image.toString(), author = this.id)
+    return BookLocalDB(id = this.id.toInt(), name = this.title, imageUrl = this.image.toString(), author = this.author, genre_id = this.genre_id ?:"")
 }
 
 

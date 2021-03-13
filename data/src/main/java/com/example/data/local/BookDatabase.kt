@@ -4,16 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.data.local.dao.BookDao
+import com.example.data.local.dao.GenresDao
 import com.example.data.local.model.BookLocalDB
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.data.local.model.GenresLocalDB
 
-@Database(entities = [BookLocalDB::class], version = 2, exportSchema = false)
+@Database(entities = [BookLocalDB::class, GenresLocalDB::class], version = 4, exportSchema = false)
 abstract class BookDatabase : RoomDatabase() {
 
     abstract fun bookDao(): BookDao
+    abstract fun genresDao(): GenresDao
 
     companion object {
         @Volatile

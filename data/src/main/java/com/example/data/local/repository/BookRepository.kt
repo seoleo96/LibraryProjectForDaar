@@ -9,7 +9,6 @@ interface BookRepository {
     fun getBooks(): Flow<List<BookLocalDB>>
     suspend fun deleteAll()
     suspend fun getDataFromApiAndAddToDB():Flow<List<BookLocalDB>>
-    fun searchDatabase(query : String): Flow<List<BookLocalDB>>
-    fun sortByIdASC() : Flow<List<BookLocalDB>>
-    fun sortByIdDESC() : Flow<List<BookLocalDB>>
+    fun searchDatabase(query : String?): Flow<List<BookLocalDB>>
+    fun sortByIdGenres(id: List<String>): Flow<List<BookLocalDB>>
 }

@@ -9,19 +9,4 @@
         android:icon="@drawable/ic_baseline_search_24"
         app:showAsAction="ifRoom"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
-
-    <item android:title="@string/sort_menu_name"
-        android:id="@+id/sort_menu"
-        android:icon="@drawable/ic_baseline_sort_by_alpha_24"
-        app:showAsAction="always" >
-
-        <menu>
-            <item android:id="@+id/sort_by_id_ASC"
-                android:title="ASC - id"/>
-            <item android:id="@+id/sort_by_id_DESC"
-                android:title="DESC - id"/>
-        </menu>
-    </item>
-
-
 </menu>

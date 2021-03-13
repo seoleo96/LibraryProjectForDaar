@@ -5,6 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.find.R
@@ -18,13 +21,21 @@ class BookAdapterFind : RecyclerView.Adapter<BookAdapterFind.MyViewHolder>() {
 
         fun bind(current: BookDvoFind) {
             val imageBook = itemView.findViewById<ImageView>(R.id.image_book_search)
+            val click = itemView.findViewById<ConstraintLayout>(R.id.click)
             val nameBook = itemView.findViewById<TextView>(R.id.name_book_search)
             val authorBook = itemView.findViewById<TextView>(R.id.name_author_search)
             nameBook.text = current.name
             authorBook.text = current.author
 //            imageBook.text = current.imageUrl
-            Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit))
-                .centerCrop().into(imageBook)
+//            Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit))
+//                .centerCrop().into(imageBook)
+            if (current.imageUrl == "null"){
+                Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.default_book))
+                    .centerCrop().into(imageBook)
+            } else {
+                Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit))
+                    .centerCrop().into(imageBook)
+            }
         }
     }
 

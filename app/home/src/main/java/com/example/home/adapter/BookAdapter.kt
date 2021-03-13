@@ -23,8 +23,16 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
             nameBook.text = current.name
             authorBook.text = current.author
 //            imageBook.text = current.imageUrl
-            Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit))
-                .centerCrop().into(imageBook)
+//            Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit)).centerCrop().into(imageBook)
+            if (current.imageUrl == "null"){
+                Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.default_book))
+                    .centerCrop().into(imageBook)
+            } else {
+                Glide.with(itemView).load(itemView.resources.getDrawable(R.drawable.xobbit))
+                    .centerCrop().into(imageBook)
+            }
+
+
         }
     }
 
@@ -45,6 +53,10 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return if (list.size > 4) {
+            4
+        }else{
+            list.size
+        }
     }
 }

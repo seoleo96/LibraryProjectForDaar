@@ -51,7 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         recycler = requireView().findViewById(R.id.recycler)
         recycler.adapter = adapter
         val layoutManager =
-            GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
+            LinearLayoutManager(requireContext(),  LinearLayoutManager.HORIZONTAL, false)
         recycler.layoutManager = layoutManager
     }
 

@@ -1,4 +1,4 @@
-package com.example.data.local
+package com.example.data.local.dao
 
 
 import androidx.room.*
@@ -13,18 +13,15 @@ interface BookDao {
     suspend fun insertAll(list: List<BookLocalDB>)
 
     @Query("SELECT * FROM books ORDER BY id ASC")
-    fun getBooks() : Flow<List<BookLocalDB>>
+    fun getBooks(): Flow<List<BookLocalDB>>
 
     @Query("DELETE FROM books")
     fun deleteAll()
 
     @Query("SELECT * FROM books WHERE name LIKE :query OR author LIKE :query")
-    fun searchDatabase(query : String): Flow<List<BookLocalDB>>
+    fun searchDatabase(query: String): Flow<List<BookLocalDB>>
 
-    @Query("SELECT * FROM books ORDER BY id ASC;")
-    fun sortByIdASC() : Flow<List<BookLocalDB>>
-
-    @Query("SELECT * FROM books ORDER BY id DESC;")
-    fun sortByIdDESC() : Flow<List<BookLocalDB>>
+    @Query("SELECT * FROM books WHERE genre_id IN (:id)")
+    fun sortByIdGenres(id:List<String>): Flow<List<BookLocalDB>>
 
 }
